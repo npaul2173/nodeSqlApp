@@ -1,11 +1,30 @@
 const express = require("express");
+const cors = require("cors");
+const mySql = require("mysql");
 const app = express();
-const port = 3000;
+const PORT = 3000;
 
-app.get("/", (req, res) => {
-  res.send("Hello World!");
+const db = mySql.createPool({
+  host: "localHost",
+  user: "root",
+  password: "root",
+  databse: "sql_work",
 });
 
-app.listen(port, () => {
-  console.log(`App listening at http://localhost:${port}`);
+app.use(cors());
+app.use(express.json());
+app.use(
+  express.urlencoded({
+    extended: true,
+  })
+);
+
+app.get("/", (req, res) => {
+  // const sqlInsert = ""
+  res.json({ message: "Welcome to bezkoder application." });
+  // res.send("Hello World!");
+});
+
+app.listen(PORT, () => {
+  console.log(`App listening at http://localhost:${PORT}`);
 });
