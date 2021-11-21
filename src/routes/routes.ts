@@ -1,15 +1,17 @@
 import express from "express";
 import { findAllOrders } from "../controller/orders.controller";
+import {
+  createProduct,
+  findAllProducts,
+} from "../controller/products.controller";
 const orderRouter = express.Router();
 
-// Retrieve all employees
+// Retrieve all Orders
 orderRouter.get("/", findAllOrders);
-// // Create a new employee
-// router.post("/", employeeController.create);
-// // Retrieve a single employee with id
-// router.get("/:id", employeeController.findById);
-// // Update a employee with id
-// router.put("/:id", employeeController.update);
-// // Delete a employee with id
-// router.delete("/:id", employeeController.delete);
+
+// Create a new product
+orderRouter.post("/createProduct", createProduct);
+// Get all Products
+orderRouter.get("/products", findAllProducts);
+
 export { orderRouter };

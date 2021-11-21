@@ -4,8 +4,6 @@ import { Order } from "../types/order/order";
 
 export const findAllOrders = (req: Request, res: Response) => {
   orderModel.findAll((err: Error, orders: Order[]) => {
-    console.log(err);
-
     if (err) {
       return res.status(500).json({ errorMessage: err.message });
     }

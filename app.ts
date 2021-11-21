@@ -7,7 +7,7 @@ import { orderRouter } from "./src/routes/routes";
 const app = express();
 dotenv.config();
 app.use(bodyParser.json());
-app.use("/orders", orderRouter);
+app.use("/v1/api", orderRouter);
 app.listen(process.env.PORT, () => {
   console.log("Node server started running");
 });
