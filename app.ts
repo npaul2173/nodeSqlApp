@@ -5,10 +5,7 @@ import * as bodyParser from "body-parser";
 
 const app = express();
 dotenv.config();
-
 app.use(bodyParser.json());
-// app.use("/orders", orderRouter);
-
 app.listen(process.env.PORT, () => {
   console.log("Node server started running");
 });
